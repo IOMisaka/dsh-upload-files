@@ -1,0 +1,25 @@
+{
+  "name": "dsh-upload-files",
+  "version": "0.1.0",
+  "description": "Web sidebar file upload for the DeepSeek Harness: an upload icon in the workspace section header (next to search / view-options / add-workspace) stores files in a dedicated ~/.dsh/uploads directory with persistent history, and exposes a list_uploads tool so agents can query uploaded files by path and process them per user instructions. / DSH Web 侧边栏文件上传：工作区标题行（搜索/视图/新建图标旁）的上传入口，文件存入专用目录 ~/.dsh/uploads 并保留历史记录；agent 通过 list_uploads 工具查询上传历史并按用户指令处理对应文件。",
+  "private": false,
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": ["lib","cordis.patch.yml","LICENSE","README.md"],
+  "keywords": ["deepseek","harness","dsh","dsh-plugin","web","upload","files","ui"],
+  "license": "MIT",
+  "peerDependencies": { "@deepseek-ai/cordis": "^4.0.1" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "inject": ["@deepseek-ai/dsh-client-runtime", "@deepseek-ai/dsh-client-ui-sidebar"],
+      "platform": "web"
+    }
+  }
+}

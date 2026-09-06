@@ -1,0 +1,8 @@
+# dsh-upload-files — bundle patch: one plugin row loading both halves.
+# host half registers POST /upload-files + GET /uploads/history +
+# GET|POST /uploads/open-dir on the webServer and the list_uploads agent tool;
+# client half injects an icon-only upload button into the sidebar workspace
+# section header (next to search / view-options / add-workspace).
+- insert:
+    - id: dsh-upload-files
+      name: dsh-upload-files
